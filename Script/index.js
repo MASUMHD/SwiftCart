@@ -4,24 +4,86 @@ const categories = () => {
     .then((data) => displayCategories(data));
 };
 
+let allProductsData = [];
+
 const allProducts = () => {
   fetch(`https://fakestoreapi.com/products`)
     .then((res) => res.json())
-    .then((products) => displayProducts(products));
+    .then((products) => {
+      allProductsData = products;
+      displayProducts(products);
+    });
+};
+
+const openProductModal = (id) => {
+  fetch(`https://fakestoreapi.com/products/${id}`)
+    .then((res) => res.json())
+    .then((product) => {
+      const modal = document.getElementById("my_modal_2");
+      const title = document.getElementById("modal-title");
+      const image = document.getElementById("modal-image");
+      const description = document.getElementById("modal-description");
+      const price = document.getElementById("modal-price");
+
+      title.textContent = product.title;
+      image.src = product.image;
+      image.alt = product.title;
+      description.textContent = product.description;
+      price.textContent = `$${product.price}`;
+
+      modal.showModal();
+    });
 };
 
 // show all Categories
+let currentCategory = "All"; 
+
 const displayCategories = (categories) => {
   const categoryContainer = document.getElementById("category-btn");
   categoryContainer.innerHTML = "";
 
+  // All button 
+  const allBtn = document.createElement("button");
+  allBtn.textContent = "All";
+  setActiveClass(allBtn, "All");
+
+  allBtn.addEventListener("click", () => {
+    currentCategory = "All";
+    displayProducts(allProductsData);
+    displayCategories(categories); 
+  });
+
+  categoryContainer.append(allBtn);
+
+  // all category buttons
   for (let category of categories) {
-    // console.log(category);
-    const btnDiv = document.createElement("div");
-    btnDiv.innerHTML = `
-     <button class="btn btn-outline rounded-full h-8">${category}</button>
-     `;
-    categoryContainer.append(btnDiv);
+    const btn = document.createElement("button");
+    btn.textContent = category;
+    setActiveClass(btn, category);
+
+    btn.addEventListener("click", () => {
+      currentCategory = category;
+
+      const filtered = allProductsData.filter(
+        (product) => product.category === category
+      );
+
+      displayProducts(filtered);
+      displayCategories(categories); 
+    });
+
+    categoryContainer.append(btn);
+  }
+};
+
+// active class for category buttons
+const setActiveClass = (btn, category) => {
+  btn.className =
+    "btn btn-outline rounded-full h-8 transition";
+
+  if (category === currentCategory) {
+    btn.classList.remove("btn-outline");
+    btn.classList.add("bg-indigo-600", "text-white");
   }
 };
 
@@ -31,8 +93,8 @@ const displayProducts = (products) => {
   productContainer.innerHTML = "";
 
   for (let product of products) {
-    console.log("this is a", product);
-    const productCard = document.createElement("dev");
+    // console.log("this is a", product);
+    const productCard = document.createElement("div");
     productCard.innerHTML = `
         <div
             class="md:max-w-sm lg:max-w-[350px] bg-white rounded-xl overflow-hidden border border-gray-200"
@@ -84,6 +146,7 @@ const displayProducts = (products) => {
                 <!-- Details Button -->
                 <button
                   class="flex-1 flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2 text-gray-600 hover:bg-gray-100 transition cursor-pointer"
+                  onclick="openProductModal(${product.id})"
                 >
                   <i class="fa-regular fa-eye"></i>
                   Details
