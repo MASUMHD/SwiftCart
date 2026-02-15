@@ -1,102 +1,28 @@
-const categories = () => {
-  fetch(`https://fakestoreapi.com/products/categories`)
-    .then((res) => res.json())
-    .then((data) => displayCategories(data));
-};
-
-let allProductsData = [];
-
 const allProducts = () => {
   fetch(`https://fakestoreapi.com/products`)
     .then((res) => res.json())
-    .then((products) => {
-      allProductsData = products;
-      displayProducts(products);
-      showTopRatedProducts(products);
-    });
+    .then((products) => showTopRatedProducts(products));
 };
 
-const openProductModal = (id) => {
-  fetch(`https://fakestoreapi.com/products/${id}`)
-    .then((res) => res.json())
-    .then((product) => {
-      const modal = document.getElementById("my_modal_2");
-      const title = document.getElementById("modal-title");
-      const image = document.getElementById("modal-image");
-      const description = document.getElementById("modal-description");
-      const price = document.getElementById("modal-price");
+// show Top Rated Products
+const showTopRatedProducts = (products) => {
+  const container = document.getElementById("top-rated-section");
+  container.innerHTML = "";
 
-      title.textContent = product.title;
-      image.src = product.image;
-      image.alt = product.title;
-      description.textContent = product.description;
-      price.textContent = `$${product.price}`;
+  // 🔥 Step 1: Rating অনুযায়ী sort (High to Low)
+  const sortedProducts = [...products].sort(
+    (a, b) => b.rating.rate - a.rating.rate,
+  );
 
-      modal.showModal();
-    });
-};
+  // 🔥 Step 2: Top 3 products select
+  const topThree = sortedProducts.slice(0, 3);
 
-// show all Categories
-let currentCategory = "All";
+  // 🔥 Step 3: Show them
+  topThree.forEach((product) => {
+    const card = document.createElement("div");
 
-const displayCategories = (categories) => {
-  const categoryContainer = document.getElementById("category-btn");
-  categoryContainer.innerHTML = "";
-
-  // All button
-  const allBtn = document.createElement("button");
-  allBtn.textContent = "All";
-  setActiveClass(allBtn, "All");
-
-  allBtn.addEventListener("click", () => {
-    currentCategory = "All";
-    displayProducts(allProductsData);
-    displayCategories(categories);
-  });
-
-  categoryContainer.append(allBtn);
-
-  // all category buttons
-  for (let category of categories) {
-    const btn = document.createElement("button");
-    btn.textContent = category;
-    setActiveClass(btn, category);
-
-    btn.addEventListener("click", () => {
-      currentCategory = category;
-
-      const filtered = allProductsData.filter(
-        (product) => product.category === category,
-      );
-
-      displayProducts(filtered);
-      displayCategories(categories);
-    });
-
-    categoryContainer.append(btn);
-  }
-};
-
-// active class for category buttons
-const setActiveClass = (btn, category) => {
-  btn.className = "btn btn-outline rounded-full h-8 transition";
-
-  if (category === currentCategory) {
-    btn.classList.remove("btn-outline");
-    btn.classList.add("bg-indigo-600", "text-white");
-  }
-};
-
-// Show all products
-const displayProducts = (products) => {
-  const productContainer = document.getElementById("products-card");
-  productContainer.innerHTML = "";
-
-  for (let product of products) {
-    // console.log("this is a", product);
-    const productCard = document.createElement("div");
-    productCard.innerHTML = `
-        <div
+    card.innerHTML = `
+      <div
             class="md:max-w-sm lg:max-w-[350px] bg-white rounded-xl overflow-hidden border border-gray-200"
           >
             <!-- Product Image -->
@@ -162,13 +88,30 @@ const displayProducts = (products) => {
               </div>
             </div>
           </div>
-        `;
+    `;
 
-    productContainer.append(productCard);
-  }
+    container.append(card);
+  });
 };
 
+const openProductModal = (id) => {
+  fetch(`https://fakestoreapi.com/products/${id}`)
+    .then((res) => res.json())
+    .then((product) => {
+      const modal = document.getElementById("my_modal_2");
+      const title = document.getElementById("modal-title");
+      const image = document.getElementById("modal-image");
+      const description = document.getElementById("modal-description");
+      const price = document.getElementById("modal-price");
 
+      title.textContent = product.title;
+      image.src = product.image;
+      image.alt = product.title;
+      description.textContent = product.description;
+      price.textContent = `$${product.price}`;
 
-categories();
+      modal.showModal();
+    });
+};
+
 allProducts();
