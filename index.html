@@ -73,20 +73,20 @@
               <li><a>content</a></li>
             </ul>
           </div>
-          <a href="/" class="btn btn-ghost text-xl text-[#4f39f6]">SwiftCart</a>
+          <a href="/" class="btn btn-ghost text-xl md:text-2xl font-bold text-indigo-500">SwiftCart</a>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1 flex gap-2">
-            <li class="hover:text-[#4f39f6] hover:font-semibold">
+            <li class="hover:text-[#4f39f6] hover:font-bold font-semibold ">
               <a>Home</a>
             </li>
-            <li class="hover:text-[#4f39f6] hover:font-semibold">
+            <li class="hover:text-[#4f39f6] hover:font-bold font-semibold ">
               <a>Products</a>
             </li>
-            <li class="hover:text-[#4f39f6] hover:font-semibold">
+            <li class="hover:text-[#4f39f6] hover:font-bold font-semibold ">
               <a>About</a>
             </li>
-            <li class="hover:text-[#4f39f6] hover:font-semibold">
+            <li class="hover:text-[#4f39f6] hover:font-bold font-semibold ">
               <a>content</a>
             </li>
           </ul>
@@ -138,7 +138,7 @@
 
       <!-- Why choose us -->
       <section class="py-24 bg-gray-200 px-4 md:px-24 lg:px-44">
-        <div class="text-center space-y-2 mb-10 ">
+        <div class="text-center space-y-2 mb-10">
           <h2 class="text-2xl md:text-4xl font-bold">Why choose us</h2>
           <p class="text-lg text-gray-400">
             We provide the best shopping experience with top-notch services.
@@ -209,13 +209,14 @@
 
         <div
           id="products-card"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         >
+          <!-- card -->
           <div
-            class="md:max-w-sm bg-white rounded-xl overflow-hidden border border-gray-200"
+            class="md:max-w-sm lg:max-w-[350px] bg-white rounded-xl overflow-hidden border border-gray-200"
           >
             <!-- Product Image -->
-            <div class="bg-gray-100  flex items-center justify-center">
+            <div class="bg-gray-100 flex items-center justify-center">
               <img
                 src="/assest/banner-image.png"
                 alt="Backpack"
@@ -276,12 +277,118 @@
               </div>
             </div>
           </div>
-          
-          
         </div>
       </section>
     </main>
 
-    <footer></footer>
+    <!-- Footer -->
+    <footer class="bg-[#1e293b] text-gray-300">
+      
+      <div class="px-4 md:px-24 lg:px-44 py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <!-- Brand -->
+          <div>
+            <h2 class="text-2xl font-bold text-indigo-400 mb-4">SwiftCart</h2>
+            <p class="text-sm text-gray-400 leading-6">
+              Your one-stop shop for all your fashion and lifestyle needs.
+              Quality products, fast delivery, and excellent support.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="lg:ml-20">
+            <h3
+              class="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4"
+            >
+              Quick Links
+            </h3>
+            <ul class="space-y-3 text-sm">
+              <li><a href="#" class="hover:text-indigo-400 transition">Home</a></li>
+              <li>
+                <a href="#" class="hover:text-indigo-400 transition">Products</a>
+              </li>
+              <li><a href="#" class="hover:text-indigo-400 transition">About</a></li>
+              <li>
+                <a href="#" class="hover:text-indigo-400 transition">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="lg:ml-10">
+            <h3
+              class="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4"
+            >
+              Support
+            </h3>
+            <ul class="space-y-3 text-sm">
+              <li><a href="#" class="hover:text-indigo-400 transition">FAQ</a></li>
+              <li>
+                <a href="#" class="hover:text-indigo-400 transition">Shipping</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-indigo-400 transition">Returns</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-indigo-400 transition"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          
+          <div>
+            <h3
+              class="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4"
+            >
+              Subscribe to our newsletter
+            </h3>
+            <p class="text-sm text-gray-400 mb-4">
+              The latest news, articles, and resources sent to your inbox
+              weekly.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="w-full px-4 py-2 rounded-lg bg-gray-200 text-gray-800 focus:outline-none"
+              />
+              <button
+                class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-700 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+          <!-- Copyright -->
+          <p class="text-sm text-gray-400">
+            © 2025 SwiftCart, Inc. All rights reserved.
+          </p>
+
+          <!-- Social Icons -->
+          <div class="flex space-x-5 text-gray-400 text-lg">
+            <a href="#" class="hover:text-white transition"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a href="#" class="hover:text-white transition"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+            <a href="#" class="hover:text-white transition"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="#" class="hover:text-white transition"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
