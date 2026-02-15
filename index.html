@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title and logo -->
+    <title>SwiftCart</title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn-icons-png.flaticon.com/512/8441/8441212.png"
+      type="image/x-icon"
+    />
+
+    <!-- Fount Awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- tailwindcss and daisyui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google Fount -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- style Sheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar bg-base-100 shadow-sm md:px-44">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="-1"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li><a>Home</a></li>
+              <li>
+                <a>Products</a>
+              </li>
+              <li><a>About</a></li>
+              <li><a>content</a></li>
+            </ul>
+          </div>
+          <a href="/" class="btn btn-ghost text-xl text-[#4f39f6]">SwiftCart</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 flex gap-2">
+            <li class="hover:text-[#4f39f6] hover:font-semibold">
+              <a>Home</a>
+            </li>
+            <li class="hover:text-[#4f39f6] hover:font-semibold">
+              <a>Products</a>
+            </li>
+            <li class="hover:text-[#4f39f6] hover:font-semibold">
+              <a>About</a>
+            </li>
+            <li class="hover:text-[#4f39f6] hover:font-semibold">
+              <a>content</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-end cursor-pointer">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Banner -->
+      <section class="relative w-full">
+        <div class="w-full h-[300px] sm:h-[400px] md:h-[550px]">
+          <img
+            src="/assest/banner-image.png"
+            alt="banner-image"
+            class="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        <!-- Dark Overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-[#121929] to-black/50"
+        ></div>
+
+        <!-- Content -->
+        <div
+          class="absolute inset-0 flex items-center justify-center md:justify-start text-center md:text-start px-4 md:px-44"
+        >
+          <div class="max-w-3xl text-white">
+            <h1
+              class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+            >
+              Best Collection For You
+            </h1>
+
+            <p
+              class="text-sm sm:text-base md:text-lg mb-6 text-gray-200 max-w-2xl"
+            >
+              Discover the latest trends in fashion, electronics, and more. Shop
+              with confidence and style at SwiftCart.
+            </p>
+
+            <button class="px-6 py-3 btn-primary btn">Shop Now</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
