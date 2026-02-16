@@ -96,7 +96,21 @@
           </ul>
         </div>
         <div class="navbar-end cursor-pointer">
-          <i class="fa-solid fa-cart-shopping"></i>
+          <div
+            class="relative w-10 h-10 flex items-center justify-center cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-cart-shopping text-2xl text-indigo-500 hover:text-indigo-400"
+            ></i>
+
+            <!-- Cart Count -->
+            <span
+              id="cart-count"
+              class="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-semibold w-5 h-5 flex items-center justify-center rounded-full"
+            >
+              3
+            </span>
+          </div>
         </div>
       </div>
     </header>
@@ -135,7 +149,9 @@
               with confidence and style at SwiftCart.
             </p>
 
-            <button class="px-6 py-3 btn-primary btn"><a href="/pages/products.html">Shop Now</a></button>
+            <button class="px-6 py-3 btn-primary btn">
+              <a href="/pages/products.html">Shop Now</a>
+            </button>
           </div>
         </div>
       </section>
@@ -220,8 +236,13 @@
 
         <!-- All products button -->
         <div class="text-center mt-10">
-          <button class="btn btn-outline btn-primary">
-            <a href="/pages/products.html">View All Products <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+          <button
+            class="btn btn-outline border-indigo-500 text-indigo-500 hover:bg-indigo-600 hover:text-white"
+          >
+            <a href="/pages/products.html"
+              >View All Products
+              <i class="fa-solid fa-arrow-right-from-bracket"></i
+            ></a>
           </button>
         </div>
 
@@ -267,9 +288,7 @@
                 </div>
                 <!-- buttons -->
                 <div class="flex flex-wrap gap-3 mt-10">
-                  <button class="flex-1 btn btn-primary">
-                    Add to Cart
-                  </button>
+                  <button class="flex-1 btn btn-primary">Add to Cart</button>
                   <button class="flex-1 btn btn-outline btn-success">
                     Buy Now
                   </button>
@@ -277,7 +296,7 @@
               </div>
             </div>
             <hr class="mt-6 mb-2 text-gray-400" />
-            <div >
+            <div>
               <p id="modal-description" class="py-2">Description here</p>
             </div>
           </div>

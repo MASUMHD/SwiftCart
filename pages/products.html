@@ -96,7 +96,21 @@
           </ul>
         </div>
         <div class="navbar-end cursor-pointer">
-          <i class="fa-solid fa-cart-shopping"></i>
+          <div
+            class="relative w-10 h-10 flex items-center justify-center cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-cart-shopping text-2xl text-indigo-500 hover:text-indigo-400"
+            ></i>
+
+            <!-- Cart Count -->
+            <span
+              id="cart-count"
+              class="absolute -top-1 -right-1 bg-green-500 text-white text-xs font-semibold w-5 h-5 flex items-center justify-center rounded-full"
+            >
+              3
+            </span>
+          </div>
         </div>
       </div>
     </header>
