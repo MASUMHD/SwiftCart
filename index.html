@@ -135,7 +135,7 @@
               with confidence and style at SwiftCart.
             </p>
 
-            <button class="px-6 py-3 btn-primary btn">Shop Now</button>
+            <button class="px-6 py-3 btn-primary btn"><a href="/pages/products.html">Shop Now</a></button>
           </div>
         </div>
       </section>
@@ -218,18 +218,68 @@
           <!-- card -->
         </div>
 
+        <!-- All products button -->
+        <div class="text-center mt-10">
+          <button class="btn btn-outline btn-primary">
+            <a href="/pages/products.html">View All Products <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+          </button>
+        </div>
+
         <!-- card details modal  -->
         <dialog id="my_modal_2" class="modal">
-          <div class="modal-box">
-            <h3 id="modal-title" class="text-lg font-bold">Title here</h3>
-            <img
-              id="modal-image"
-              class="w-full h-48 object-contain my-3"
-              src=""
-              alt="Product"
-            />
-            <p id="modal-description" class="py-2">Description here</p>
-            <p id="modal-price" class="font-semibold text-indigo-600">$0.00</p>
+          <div class="modal-box w-11/12 max-w-3xl">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+              <div
+                class="flex items-center justify-center md:col-span-2 bg-gray-100 rounded-lg"
+              >
+                <img
+                  id="modal-image"
+                  class="w-full h-48 object-contain my-3"
+                  src=""
+                  alt="Product"
+                />
+              </div>
+              <div class="md:col-span-3">
+                <h3 id="modal-title" class="text-lg font-bold">Title</h3>
+                <!-- Rating -->
+                <div class="grid grid-cols-5 gap-3">
+                  <div
+                    class="flex items-center justify-center gap-4 mt-4 col-span-1 bg-indigo-100 rounded-lg px-3 py-1"
+                  >
+                    <p
+                      id="modal-price"
+                      class="font-semibold text-sm md:text-lg text-indigo-600"
+                    >
+                      $0.00
+                    </p>
+                  </div>
+                  <div
+                    class="flex items-center justify-center gap-2 mt-4 col-span-4 bg-yellow-50 border border-yellow-100 rounded-lg px-4 py-2"
+                  >
+                    <i class="fa-solid fa-star text-yellow-300 text-sm"></i>
+                    <p
+                      id="modal-rating"
+                      class="font-semibold text-gray-800 text-sm"
+                    >
+                      4.8 Rating
+                    </p>
+                  </div>
+                </div>
+                <!-- buttons -->
+                <div class="flex flex-wrap gap-3 mt-10">
+                  <button class="flex-1 btn btn-primary">
+                    Add to Cart
+                  </button>
+                  <button class="flex-1 btn btn-outline btn-success">
+                    Buy Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <hr class="mt-6 mb-2 text-gray-400" />
+            <div >
+              <p id="modal-description" class="py-2">Description here</p>
+            </div>
           </div>
           <form method="dialog" class="modal-backdrop">
             <button>Close</button>

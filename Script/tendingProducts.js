@@ -103,12 +103,14 @@ const openProductModal = (id) => {
       const image = document.getElementById("modal-image");
       const description = document.getElementById("modal-description");
       const price = document.getElementById("modal-price");
+      const rating = document.getElementById("modal-rating");
 
       title.textContent = product.title;
       image.src = product.image;
       image.alt = product.title;
       description.textContent = product.description;
       price.textContent = `$${product.price}`;
+      rating.textContent = `Rating: ${product.rating.rate} (${product.rating.count} reviews)`;
 
       modal.showModal();
     });
