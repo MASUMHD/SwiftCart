@@ -81,7 +81,7 @@ const displayCategories = (categories) => {
 
 // active class for category buttons
 const setActiveClass = (btn, category) => {
-  btn.className = "btn btn-outline rounded-full h-8 transition";
+  btn.className = "btn btn-outline rounded-md h-8 transition";
 
   if (category === currentCategory) {
     btn.classList.remove("btn-outline");
