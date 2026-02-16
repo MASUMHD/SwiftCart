@@ -4,20 +4,19 @@ const allProducts = () => {
     .then((products) => showTopRatedProducts(products));
 };
 
-// show Top Rated Products
+// Top Rated Products
 const showTopRatedProducts = (products) => {
   const container = document.getElementById("top-rated-section");
   container.innerHTML = "";
 
-  // 🔥 Step 1: Rating অনুযায়ী sort (High to Low)
   const sortedProducts = [...products].sort(
     (a, b) => b.rating.rate - a.rating.rate,
   );
 
-  // 🔥 Step 2: Top 3 products select
+  // console.log("sorted: ", sortedProducts);
+
   const topThree = sortedProducts.slice(0, 3);
 
-  // 🔥 Step 3: Show them
   topThree.forEach((product) => {
     const card = document.createElement("div");
 
@@ -94,6 +93,7 @@ const showTopRatedProducts = (products) => {
   });
 };
 
+// Product Modal details
 const openProductModal = (id) => {
   fetch(`https://fakestoreapi.com/products/${id}`)
     .then((res) => res.json())
